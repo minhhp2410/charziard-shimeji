@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img id="dragon" src="./b.gif" height="340" width="290" style=" position: absolute; transition-duration: 6s; opacity: 0.4;"> </img>
+    <script>
+      const dragon=document.getElementById("dragon");
+      const x_Max=800;
+      const y_Max=300;
+      let move= ()=>{
+      const interval=setInterval(()=>{    
+      let currentX= parseInt(dragon.style.left);
+      let nextX= Math.floor(Math.random() * x_Max);
+      let nextY= Math.floor(Math.random() * y_Max);
+      if(currentX<=nextX && dragon.src!=="./b.gif"){
+      dragon.src="./b.gif";
+      }else
+      if(currentX>nextX && dragon.src!=="./a.gif")
+      {
+        dragon.src="./a.gif";
+      }
+      dragon.style.left=`${nextX}px`;
+      dragon.style.top=`${nextY}px`;
+      console.log(typeof(currentX),typeof(nextX));
+    },5000);
+    }
+    move();
+    </script>
+  </body>
+</html>
